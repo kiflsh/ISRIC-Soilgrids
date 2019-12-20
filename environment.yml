@@ -1,0 +1,6 @@
+name: soilgrids-notebooks
+channels:
+  - conda-forge
+dependencies:
+  - owslib
+  - rasterio
