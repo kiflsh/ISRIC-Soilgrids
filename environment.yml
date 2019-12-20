@@ -4,3 +4,4 @@ channels:
 dependencies:
   - owslib
   - rasterio
+  - matplotlib
