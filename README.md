@@ -3,7 +3,7 @@ SoilGrids notebooks
 
 Collection of notebooks eexplaining how to use SoilGrids maps programatically.
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/git/https%3A%2F%2Fgit.wur.nl%2Fduque004%2Fsoilgrids.notebooks/master?filepath=00-TOC.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/git/https%3A%2F%2Fgit.wur.nl%2Fduque004%2Fsoilgrids.notebooks/master?filepath=index.ipynb)
 
 Licence
 -------
