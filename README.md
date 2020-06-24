@@ -5,9 +5,24 @@
 SoilGrids notebooks
 ===================
 
-Collection of notebooks eexplaining how to use SoilGrids maps programatically.
-
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/git/https%3A%2F%2Fgit.wur.nl%2Fduque004%2Fsoilgrids.notebooks/master?filepath=index.ipynb)
+
+Collection of notebooks explaining how to use SoilGrids maps programatically. 
+
+To run it locally start by checking the repository:
+
+```
+git clone git@git.wur.nl:isric/soilgrids/soilgrids.notebooks.git
+```
+
+Then enter the folder and start Jupyter:
+
+```
+cd soilgrids.notebooks
+jupyter notebook
+```
+
+This repository can also be used online with [Binder](https://mybinder.org/v2/git/https%3A%2F%2Fgit.wur.nl%2Fduque004%2Fsoilgrids.notebooks/master?filepath=index.ipynb).
 
 Licence
 -------
