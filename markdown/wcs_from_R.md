@@ -4,6 +4,8 @@
 # Access WCS with R
 This tutorial will show how to access SoilGrids using Web Coverage Services and the R software. This tutorial will use the `rgdal` and `gdalUtils` packages.
 
+This tutorial works with a gdal version of 2.3.x or newer.
+
 ## Load libraries
 
 ```R
