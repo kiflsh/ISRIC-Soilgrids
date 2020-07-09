@@ -31,8 +31,10 @@ We set other variables necessary for the WCS call for all kinds of requests
 ```R
 wcs_path = paste0("https://maps.isric.org/mapserv?map=/map/",voi,".map") # Path to the WCS. See maps.isric.org
 wcs_service = "SERVICE=WCS"
-wcs_version = "VERSION=2.0.1"
+wcs_version = "VERSION=2.0.1" # Only for gdal >=2.3. Use wcs_version = "VERSION=1.1.1"` for gdal < 2.3.x
 ```
+**NOTE**
+Use `wcs_version = "VERSION=2.0.1"` for gdal >= 2.3.x and `wcs_version = "VERSION=1.1.1"` for gdal < 2.3.x
 
 ## Example 1: Describe the coverage layer
 ###### 1. First we define the request as `DescribeCoverage` and we create a string for the full request using also the variables previously defined
