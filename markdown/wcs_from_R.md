@@ -75,9 +75,12 @@ igh='+proj=igh +lat_0=0 +lon_0=0 +datum=WGS84 +units=m +no_defs' # proj string f
 We paste all the components of the WCS request:
 
 ```R
-wcs = paste(wcs_path,wcs_service,wcs_version,sep="&")
+wcs = paste(wcs_path,wcs_service,wcs_version,sep="&") # This works for gdal >= 2.3
 
 ```
+
+**NOTE**
+For gdal < 2.3 an extra `&` is necessary at the end of the string: `wcs = paste0(wcs,"&")`
 
 ###### 2. Then we create a XML that can be used with the `gdal` utility after being saved to disk:
 ```R
