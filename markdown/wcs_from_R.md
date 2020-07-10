@@ -4,7 +4,6 @@
 # Access WCS with R
 This tutorial will show how to access SoilGrids using Web Coverage Services and the R software. This tutorial will use the `rgdal` and `gdalUtils` packages.
 
-This tutorial works with a gdal version of 2.3.x or newer.
 
 ## Load libraries
 
@@ -31,8 +30,11 @@ We set other variables necessary for the WCS call for all kinds of requests
 ```R
 wcs_path = paste0("https://maps.isric.org/mapserv?map=/map/",voi,".map") # Path to the WCS. See maps.isric.org
 wcs_service = "SERVICE=WCS"
-wcs_version = "VERSION=2.0.1"
+wcs_version = "VERSION=2.0.1" # This works for gdal >=2.3; "VERSION=1.1.1" works with gdal < 2.3.
 ```
+
+**NOTE**  
+`wcs_version = "VERSION=2.0.1"` works for gdal >=2.3; `wcs_version = "VERSION=1.1.1"` works with gdal < 2.3.
 
 ## Example 1: Describe the coverage layer
 ###### 1. First we define the request as `DescribeCoverage` and we create a string for the full request using also the variables previously defined
