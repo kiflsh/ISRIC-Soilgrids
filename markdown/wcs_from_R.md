@@ -67,7 +67,7 @@ gdalinfo("./sg.xml")
 
 ###### 1. First we define the request with the parameters for the region of interest, projection, format, resolution
 
-An example using Homolosine projection
+An example (Ghana) using Homolosine projection
 
 ```R
 bb=c(-337500.000,1242500.000,152500.000,527500.000) # Example bounding box (homolosine)
