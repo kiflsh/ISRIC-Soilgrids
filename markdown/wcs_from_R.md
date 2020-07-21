@@ -111,3 +111,8 @@ The downloaded file can then be read into R.
 
 
 See [this page](https://www.isric.org/explore/soilgrids/soilgrids-access) for examples on how to reproject 
+
+
+# Common errors:
+If you get an SSL error (for example: `SSL certificate problem: self signed certificate in certificate chain`) please try to add the following config parameter to the gdal call: `--config GDAL_HTTP_UNSAFESSL YES`
+
