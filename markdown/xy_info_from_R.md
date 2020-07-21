@@ -49,13 +49,11 @@ data_igh=data.frame(st_coordinates(spdata_igh),id=spdata_igh$my_id)
 fun_pixel_values=function(rowPX,data,VOI,VOI_LYR){
     as.numeric(
         gdallocationinfo(
-            srcfile=paste0(webdav_path,"/",VOI,"/", VOI_LYR),
+            srcfile=paste0(webdav_path,"/",VOI,"/", VOI_LYR,".vrt"),
             x=data[rowPX,"X"],
             y=data[rowPX,"Y"],
             geoloc=TRUE,
             valonly=TRUE))
-}
-
 }
 
 value_pixels=unlist(lapply(1:3,function(x){fun_pixel_values(x,data_igh,voi,voi_layer)}))
