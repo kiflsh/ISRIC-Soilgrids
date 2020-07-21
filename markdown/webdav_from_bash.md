@@ -9,8 +9,12 @@
 Initially you need to import the following package and select the bounding box of the area you are interested in:
 
 ```Bash
-BOUNDS=-337500.000 1242500.000 152500.000 527500.000 # Example bounding box (homolosine)
-CELL_SIZE=250 250
+BOUNDS="-337500.000 1242500.000 152500.000 527500.000" # Example bounding box (homolosine) for Ghana
+ulx uly lrx lry
+CELL_SIZE="250 250"
+
+igh="+proj=igh +lat_0=0 +lon_0=0 +datum=WGS84 +units=m +no_defs" # proj string for Homolosine projection
+sg_url="/vsicurl?max_retry=3&retry_delay=1&list_dir=no&url=https://files.isric.org/soilgrids/latest/data"
 
 ```
 
@@ -18,9 +22,9 @@ CELL_SIZE=250 250
 This GDAL command will create a local geotiff in the Homolosine projection
 
 ``` bash
-gdal_translate -projwin $BOUNDS -tr $CELL_SIZE \
+gdal_translate -projwin $BOUNDS -projwin_srs "$igh" -tr $CELL_SIZE \
     -co "TILED=YES" -co "COMPRESS=DEFLATE" -co "PREDICTOR=2" -co "BIGTIFF=YES" \
-    "/vsicurl?max_retry=3&retry_delay=1&list_dir=no&url=https://files.isric.org/soilgrids/latest/data/ocs_0-30cm_mean.vrt" \
+    $sg_url"/ocs/ocs_0-30cm_mean.vrt" \
     "ocs_0-5cm_mean.tif"
 ```
 
@@ -51,4 +55,13 @@ The following command will generate a Geotiff in the projection of your choice 
 ```bash
 gdal_translate ocs_0-5cm_mean_4326.vrt ocs_0-5cm_mean_4326.tif \
     -co "TILED=YES" -co "COMPRESS=DEFLATE" -co "PREDICTOR=2" -co "BIGTIFF=YES"
+```
+
+# To download a global geotiff in Homolosine projection
+```bash
+gdal_translate \
+    -co "TILED=YES" -co "COMPRESS=DEFLATE" -co "PREDICTOR=2" -co "BIGTIFF=YES" \
+    $sg_url"/ocs/ocs_0-30cm_mean.vrt" \
+    "ocs_0-5cm_mean.tif"
+
 ```

@@ -11,9 +11,11 @@ Initially you need to import the following package and select the bounding box o
 ```python
 from osgeo import gdal,ogr,osr
 
-bb=-337500.000,1242500.000,152500.000,527500.000 # Example bounding box (homolosine)
+bb=-337500.000,1242500.000,152500.000,527500.000 # Example bounding box (homolosine) for Ghana
 igh='+proj=igh +lat_0=0 +lon_0=0 +datum=WGS84 +units=m +no_defs' # proj string for Homolosine projection
 res=250 
+
+sg_url="/vsicurl?max_retry=3&retry_delay=1&list_dir=no&url=https://files.isric.org/soilgrids/latest/data/"
 ```
 
 #### To a geotiff in Homolosine
@@ -23,7 +25,7 @@ This GDAL command will create a local geotiff in the Homolosine projection
 kwargs = {'format': 'GTiff', 'projWin': bb, 'projWinSRS': igh, 'xRes': res, 'yRes': res, 'creationOptions': ["TILED=YES", "COMPRESS=DEFLATE", "PREDICTOR=2", "BIGTIFF=YES"]}
 
 ds = gdal.Translate('./crop_roi_igh_py.tif', 
-                    '/vsicurl?max_retry=3&retry_delay=1&list_dir=no&url=https://files.isric.org/soilgrids/latest/data/ocs/ocs_0-30cm_mean.vrt', 
+                    sg_url + 'ocs/ocs_0-30cm_mean.vrt', 
                     **kwargs)
 del ds
 
@@ -66,3 +68,15 @@ ds = gdal.Translate('./crop_roi_ll_py.tif',
 
 del ds
 ```
+
+# To download a global geotiff in Homolosine projection
+``` python
+kwargs = {'format': 'GTiff', 'creationOptions': ["TILED=YES", "COMPRESS=DEFLATE", "PREDICTOR=2", "BIGTIFF=YES"]}
+
+ds = gdal.Translate('./crop_roi_igh_py.tif', 
+                    '/vsicurl?max_retry=3&retry_delay=1&list_dir=no&url=https://files.isric.org/soilgrids/latest/data/ocs/ocs_0-30cm_mean.vrt', 
+                    **kwargs)
+del ds
+
+```
+
