@@ -29,7 +29,7 @@ gdal_translate -projwin $BOUNDS -projwin_srs "$IGH" -tr $CELL_SIZE \
 ```
 
 #### To a geotiff in a different projection
-The following commands describe a workflow to obtain a VRT or a GeoTiff for an area of interest in a projection of your choice. In this example we will use `EPSG=4326`
+The following commands describe a workflow to obtain a VRT or a GeoTiff for an area of interest in a projection of your choice. In this example we will use `EPSG:4326` (WGS84 - World Geodetic System 1984)
 
 ##### To local VRT in homolosine (directly from the webdav connection)
 The first step is to obtain a VRT for the area of interest in the Homolosine projection. We suggest to use VRT for the intermediate steps to save space and computation times.
