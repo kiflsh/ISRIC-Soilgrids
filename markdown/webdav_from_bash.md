@@ -8,13 +8,13 @@
 
 Initially you need to import the following package and select the bounding box of the area you are interested in:
 
-```Bash
+```bash
 BOUNDS="-337500.000 1242500.000 152500.000 527500.000" # Example bounding box (homolosine) for Ghana
 ulx uly lrx lry
 CELL_SIZE="250 250"
 
-igh="+proj=igh +lat_0=0 +lon_0=0 +datum=WGS84 +units=m +no_defs" # proj string for Homolosine projection
-sg_url="/vsicurl?max_retry=3&retry_delay=1&list_dir=no&url=https://files.isric.org/soilgrids/latest/data"
+IGH="+proj=igh +lat_0=0 +lon_0=0 +datum=WGS84 +units=m +no_defs" # proj string for Homolosine projection
+SG_URL="/vsicurl?max_retry=3&retry_delay=1&list_dir=no&url=https://files.isric.org/soilgrids/latest/data"
 
 ```
 
@@ -22,14 +22,14 @@ sg_url="/vsicurl?max_retry=3&retry_delay=1&list_dir=no&url=https://files.isric.o
 This GDAL command will create a local geotiff in the Homolosine projection
 
 ``` bash
-gdal_translate -projwin $BOUNDS -projwin_srs "$igh" -tr $CELL_SIZE \
+gdal_translate -projwin $BOUNDS -projwin_srs "$IGH" -tr $CELL_SIZE \
     -co "TILED=YES" -co "COMPRESS=DEFLATE" -co "PREDICTOR=2" -co "BIGTIFF=YES" \
-    $sg_url"/ocs/ocs_0-30cm_mean.vrt" \
+    $SG_URL"/ocs/ocs_0-30cm_mean.vrt" \
     "ocs_0-5cm_mean.tif"
 ```
 
 #### To a geotiff in a different projection
-The following commands describe a workflow to obtain a VRT or a GeoTiff for an area of interest in a projection of your choice. In this example we will use EPSG=4326
+The following commands describe a workflow to obtain a VRT or a GeoTiff for an area of interest in a projection of your choice. In this example we will use `EPSG=4326`
 
 ##### To local VRT in homolosine (directly from the webdav connection)
 The first step is to obtain a VRT for the area of interest in the Homolosine projection. We suggest to use VRT for the intermediate steps to save space and computation times.
