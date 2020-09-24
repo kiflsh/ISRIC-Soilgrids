@@ -4,8 +4,9 @@
 # Access WCS with R
 This tutorial will show how to access SoilGrids using Web Coverage Services and the R software. This tutorial will use the `rgdal` and `gdalUtils` packages.
 
-This tutorial works with R version 3.6.x and gdal version <= 2.4.x. There are known errors when using it with R > 4.x and gdal > 3.x (e.g.
-`PROJ: proj_create_from_database: crs not found`). We are working on a solution
+**This tutorial works with R version 3.6.x and gdal version <= 2.4.x.** 
+
+There are known errors when using it with R > 4.x and gdal > 3.x (e.g. `PROJ: proj_create_from_database: crs not found`). We are working on a solution
 
 
 ## Load libraries
