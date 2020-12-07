@@ -4,9 +4,8 @@
 # [WebDAV](https://files.isric.org/soilgrids/data/recent/): direct access to the maps in VRT format.
 
 ### R
-**This code is tested for GDAL version 2.4.x. When running with GDAL version 3.x.x there may be problems. We are working on providing updates**
-
 #### Load libraries, select boundary box and cell size
+
 Initially you need to load the following libraries and select the bounding box of the area you are interested in:
 
 ```R
