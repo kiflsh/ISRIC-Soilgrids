@@ -4,8 +4,9 @@
 # [WebDAV](https://files.isric.org/soilgrids/data/recent/): direct access to the maps in VRT format.
 
 ### R
-#### Load libraries, select boundary box and cell size
+**This code is tested for GDAL version 2.4.x. When running with GDAL version 3.x.x there may be problems. We are working on providing updates**
 
+#### Load libraries, select boundary box and cell size
 Initially you need to load the following libraries and select the bounding box of the area you are interested in:
 
 ```R
@@ -56,7 +57,7 @@ gdalwarp("./crop_roi_igh_r.vrt",
 ```
 
 ##### To a final Geotiff
-The following command will generate a Geotiff in the projection of your choice for the area of interest defined above
+The following command will generate a Geotiff in the projection of your choice for the area of interest defined above
 
 ```R
 gdal_translate("./crop_roi_ll_r.vrt",  
