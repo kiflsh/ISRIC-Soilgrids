@@ -38,3 +38,7 @@ var image = ee.Image("projects/soilgrids-isric/layer_name");
 ```python
 image = ee.Image("projects/soilgrids-isric/layer_name");
 ```
+
+### Example script in Google Earth Engine code editor
+
+https://code.earthengine.google.com/9e11d149a1d28d10619fa5353b895ed2
