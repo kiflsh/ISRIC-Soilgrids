@@ -69,9 +69,6 @@ Finally you can read any of the generated VRTs or GeoTiffs in R for further anal
 ```R
 rst=rast("./crop_roi_igh_r.vrt") # Or any other of the files produce above
 
-```
-
-​```R
 plot(rst) # Plot the file
 ```
 
